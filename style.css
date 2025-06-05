@@ -1,0 +1,150 @@
+/* Переменные для цветов, адаптированные для высокой видимости и современного вида */
+:root {
+    --bg-color: #1A1A2E; /* Глубокий сине-фиолетовый (Dark Imperial Blue) */
+    --text-color: #E0E6F0; /* Очень светлый, почти белый, с легким синим оттенком (Light Steel Blue) */
+    --accent-color: #00CFFF; /* Яркий, чистый голубой (Vivid Cyan) */
+    --button-hover-color: #00AECC; /* Чуть темнее голубого при наведении */
+    --shadow-color: rgba(0, 207, 255, 0.4); /* Полупрозрачная тень под акцентный цвет */
+    --container-bg: #2C2C40; /* Чуть светлее фона контейнера */
+}
+
+/* Базовые стили для всего документа */
+body {
+    font-family: 'Roboto', sans-serif; /* Выбран для максимальной читаемости */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Занимает всю высоту viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование содержимого по вертикали */
+    align-items: center; /* Центрирование содержимого по горизонтали */
+    line-height: 1.8; /* Увеличенный интерлиньяж для лучшей читаемости */
+    text-align: center;
+    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+    font-size: 18px; /* Базовый размер шрифта, увеличен */
+}
+
+/* Контейнер для основного содержимого */
+.container {
+    max-width: 900px; /* Увеличена максимальная ширина */
+    width: 90%; /* Ширина на маленьких экранах */
+    padding: 50px; /* Увеличены отступы */
+    background-color: var(--container-bg); /* Чуть светлее, чем фон body, для небольшого контраста */
+    border-radius: 12px; /* Более заметное скругление */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Тонкая, но заметная рамка */
+}
+
+/* Заголовок h1 (для эффекта печатания) */
+header h1 {
+    font-size: 4.5em; /* Очень крупный заголовок */
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid var(--accent-color); /* Более толстый курсор */
+    animation: blinkCaret 0.75s step-end infinite;
+    display: inline-block;
+    padding-right: 5px; /* Отступ для курсора */
+    font-weight: 700; /* Жирный шрифт */
+    text-shadow: 0 0 15px var(--accent-color); /* Легкое свечение */
+}
+
+/* Анимация мерцания курсора */
+@keyframes blinkCaret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color); }
+}
+
+/* Подзаголовок/описание */
+.tagline {
+    font-size: 1.8em; /* Крупный подзаголовок */
+    color: var(--text-color); /* Используем новый цвет текста */
+    margin-bottom: 40px;
+    font-weight: 400; /* Нормальная толщина */
+}
+
+/* Кнопка "Призыв к действию" */
+.cta-button {
+    display: inline-block;
+    padding: 20px 40px; /* Увеличенный padding */
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Текст кнопки очень контрастный к её фону */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.5em; /* Крупный шрифт кнопки */
+    font-weight: 700; /* Жирный шрифт кнопки */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px var(--shadow-color); /* Свечение кнопки */
+}
+
+.cta-button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-3px); /* Чуть больше поднятия */
+    box-shadow: 0 0 30px var(--shadow-color); /* Усиленное свечение */
+}
+
+/* Футер */
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    color: rgba(224, 230, 240, 0.7); /* Цвет текста футера, адаптированный под новую палитру */
+    font-size: 1.1em; /* Увеличенный шрифт футера */
+}
+
+/* Базовая адаптивность для разных экранов */
+@media (max-width: 992px) {
+    .container {
+        padding: 40px;
+    }
+    header h1 {
+        font-size: 3.5em;
+    }
+    .tagline {
+        font-size: 1.5em;
+    }
+    .cta-button {
+        font-size: 1.3em;
+        padding: 18px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Чуть уменьшаем базовый шрифт */
+    }
+    .container {
+        margin: 20px;
+        padding: 30px;
+    }
+    header h1 {
+        font-size: 2.8em; /* Еще уменьшаем заголовок */
+        border-right-width: 3px;
+    }
+    .tagline {
+        font-size: 1.3em;
+    }
+    .cta-button {
+        font-size: 1.1em;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 2em; /* Максимальное уменьшение для мобильных */
+        border-right-width: 2px;
+    }
+    .tagline {
+        font-size: 1em;
+    }
+    .cta-button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
